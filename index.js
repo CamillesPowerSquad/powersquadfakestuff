@@ -21,6 +21,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(express.static(__dirname+"/public"));
 
 app.post('/login', passport.authenticate('local-signup'), userCtrl.login);
 app.get('/users', userCtrl.read);

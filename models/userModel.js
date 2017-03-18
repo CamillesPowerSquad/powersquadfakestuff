@@ -13,6 +13,6 @@ var User = seq.define('users', {
 
 
 
-User.sync();
+// User.sync();
 
 module.exports = User;
