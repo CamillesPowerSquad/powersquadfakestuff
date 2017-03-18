@@ -2,7 +2,9 @@ var User = require('./../models/userModel');
 
 module.exports = {
   login: function(req, res){
-    res.send();
+    console.log(req);
+    // res.send();
+    res.end();
   },
   read: function(req, res){
     User.findAll()
@@ -42,6 +44,7 @@ module.exports = {
     });
   },
   getMe: function(req, res){
+    console.log("hi");
     if(req.user){
       User.findOne({
         where: {id: req.user.id}
@@ -57,7 +60,7 @@ module.exports = {
     }
   },
   logout: function(req, res){
-    req.logout();
+    req.session.destroy();
     console.log(req.params.id + " is logged out");
     res.send();
   }
